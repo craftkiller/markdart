@@ -31,7 +31,7 @@ class markdown_help {
     FieldSetElement input_side;
     FieldSetElement output_side;
 
-    markdown_help() {
+    markdown_help({bool hidden: true}) {
         content = new Element.html("<div id=\"markdown-help\"></div>");
         show = new Element.html("<a href=\"javascript:void(0)\">Show Markdown Help</a>");
         hide = new Element.html("<a href=\"javascript:void(0)\">Hide Markdown Help</a>");
@@ -50,7 +50,10 @@ class markdown_help {
         output_side.nodes.add(help_output);
         show.onClick.listen((e) => show_help());
         hide.onClick.listen((e) => hide_help());
-        show_help();
+        if (hidden)
+            hide_help();
+        else
+            show_help();
     }
     
     void show_help() {
@@ -79,5 +82,5 @@ main() {
 }
 
 main_wrapped() {
-    query('#main').children.add(new markdown_help().content);
+    query('#main').children.add(new markdown_help(hidden: false).content);
 }
