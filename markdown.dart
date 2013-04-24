@@ -22,10 +22,6 @@
  */
 library markdown_parser;
 
-import 'dart:json';
-import 'dart:uri';
-import 'dart:core';
-
 /** 
  * Convert special html characters into code, same as the php function
  * 
