@@ -336,15 +336,6 @@ String markdown_to_html(String inp) {
     return ret;
 }
 
-main() {
-
-    try {
-        main_wrapped();
-    } catch (ex) {
-        print(ex.toString());
-    }
-}
-
 /** 
  * Handle the processing for most of the markdown types
  * 
@@ -567,9 +558,4 @@ List<markdown_node> generate_markdown_emphasis(String content) {
         return ret;
     }
     return earliest_regex.execute();
-}
-
-main_wrapped() {
-    String inp = "A First Level Header\n====================\n\nA Second Level Header\n---------------------\n\nNow is the time for all good men to come to\nthe aid of their `country`. This is just a\nre_gu_lar paragraph.\n\nThe quick brown **fox jumped** over the lazy\ndog's back.\n\n### Header 3\n\n> This is a blockquote.\n> \n> This is the second paragraph in the blockquote.\n>\n> ## This is an H2 in a blockquote\n\n    code block\n    second line code block\n- this is\n- elements in\n- a list\n[Link Text](http://google.com)\n![alt text](http://static.paphus.com/gifs/6KAiUQl.gif)";
-    print(markdown_to_html(inp));
 }
